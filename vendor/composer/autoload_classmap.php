@@ -7,4 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Calculator\\Controllers\\Calc' => $baseDir . '/src/Calc.php',
+    'Calculator\\Percentage\\BasePerc' => $baseDir . '/src/BasePerc.php',
 );
