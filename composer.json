@@ -1,0 +1,8 @@
+{
+    "name": "rana",
+    "autoload": {
+        "classmap": [
+            "src"
+        ]
+    }
+}
