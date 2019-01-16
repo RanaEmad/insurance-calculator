@@ -3,4 +3,12 @@
 require_once __DIR__."/vendor/autoload.php";
 include_once 'config/const.php';
 
-include_once BASE_URL.'/views/calculator_form.php';
+use Calculator\Controllers\Output;
+
+if($_SERVER["REQUEST_METHOD"]=="POST"){
+    $output= new Output();
+    echo json_encode($output->getOutput());
+}
+else{
+    include_once BASE_URL.'/views/calculator_form.php';
+}
