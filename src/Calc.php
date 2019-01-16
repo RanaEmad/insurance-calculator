@@ -2,6 +2,8 @@
 
 namespace Calculator\Controllers;
 
+use Calculator\Percentage\BasePerc;
+
 class Calc {
 
     protected $carValue;
@@ -15,16 +17,8 @@ class Calc {
         $this->carValue=$carValue;
         $this->taxPerc=$taxPerc/100;
         $this->installmentsNum= $installmentsNum;
-        $this->comissionPerc=17/100;
-        $this->basePerc= $this->getBasePerc()/100;
-    }
-    
-    public function getBasePerc(){
-        $basePerc= 11;
-        if(date("l")=="Friday" && date("H")>=15 && date("H")<=20){
-            $basePerc=13;
-        }
-        return $basePerc;
+        $this->comissionPerc=0.17;
+        $this->basePerc= BasePerc::getBasePerc();
     }
     
     public function calcBase() {
