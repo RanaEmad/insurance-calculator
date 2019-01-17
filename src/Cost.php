@@ -4,7 +4,7 @@ namespace Calculator\Controllers;
 abstract class Cost{
     public $installmentsNum;
     public $basePrice;
-    public $commision;
+    public $commission;
     public $tax;
     protected $calc;
     public function __construct($carValue,$taxPerc,$installmentsNum) {

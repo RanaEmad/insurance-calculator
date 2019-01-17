@@ -11,13 +11,13 @@ class Calc {
     protected $installmentsNum;
     
     protected $basePerc;
-    protected $comissionPerc;
+    protected $commissionPerc;
 
     public function __construct($carValue,$taxPerc,$installmentsNum) {
         $this->carValue=$carValue;
         $this->taxPerc=$taxPerc/100;
         $this->installmentsNum= $installmentsNum;
-        $this->comissionPerc=0.17;
+        $this->commissionPerc=0.17;
         $this->basePerc= BasePerc::getBasePerc();
     }
     
@@ -30,9 +30,9 @@ class Calc {
         return $this->taxPerc * $basePrice;
     }
 
-    public function calcComission() {
+    public function calcCommission() {
         $basePrice = $this->calcBase();
-        return $this->comissionPerc * $basePrice;
+        return $this->commissionPerc * $basePrice;
     }
 
 }

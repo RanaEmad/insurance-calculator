@@ -27,7 +27,7 @@ class Output {
         }
         else{
             $response['result']=false;
-            $response['validation_errors']=$validation['errors'];
+            $response['validatioErrors']=$validation['errors'];
         }
         return $response;
     }

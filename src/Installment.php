@@ -10,7 +10,7 @@ class Installment extends Cost {
 
     public function setCost() {
         $this->basePrice = $this->calc->calcBase() / $this->installmentsNum;
-        $this->commision = $this->calc->calcComission() / $this->installmentsNum;
+        $this->commission = $this->calc->calcCommission() / $this->installmentsNum;
         $this->tax = $this->calc->calcTax() / $this->installmentsNum;
     }
 
