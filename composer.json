@@ -2,7 +2,8 @@
     "name": "rana",
     "autoload": {
         "classmap": [
-            "src"
+            "src",
+            "core"
         ]
     }
 }

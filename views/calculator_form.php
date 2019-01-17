@@ -5,6 +5,9 @@
     </head>
     <body>
         <h1>Insurance Calculator</h1>
+        <div id="validation-errors">
+            
+        </div>
         <form id="calculator-form">
             <div>
                 <label for="carValue">Estimated Car Value</label>
