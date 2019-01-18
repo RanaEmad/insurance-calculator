@@ -12,6 +12,8 @@ class Installment extends Cost {
         $this->basePrice = $this->calc->calcBase() / $this->installmentsNum;
         $this->commission = $this->calc->calcCommission() / $this->installmentsNum;
         $this->tax = $this->calc->calcTax() / $this->installmentsNum;
+        $this->sum=  $this->basePrice+$this->commission+$this->tax;
+        $this->formatValues();
     }
 
 }

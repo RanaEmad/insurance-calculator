@@ -12,6 +12,8 @@ class Total extends Cost {
         $this->basePrice = $this->calc->calcBase();
         $this->commission = $this->calc->calcCommission();
         $this->tax = $this->calc->calcTax();
+        $this->sum=  $this->basePrice+$this->commission+$this->tax;
+        $this->formatValues();
     }
 
 }
