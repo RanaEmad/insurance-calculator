@@ -20,10 +20,12 @@ class Output {
             $values=$validation['values'];
             $total = new Total($values["carValue"],$values["taxPerc"],$values["installmentsNum"]);
             $total->setCost();
-            $installment = new Installment($values["carValue"],$values["taxPerc"],$values["installmentsNum"]);
-            $installment->setCost();
             $response['total']=$total;
-            $response['installment']=$installment;
+            if($total->installmentsNum>1){
+                $installment = new Installment($values["carValue"],$values["taxPerc"],$values["installmentsNum"]);
+                $installment->setCost();
+                $response['installment']=$installment;
+            }
         }
         else{
             $response['result']=false;

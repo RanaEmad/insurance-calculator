@@ -10,7 +10,10 @@
         req.addEventListener("load", function (e) {
             var res = JSON.parse(e.target.responseText);
             if (!res.result) {
-                show_validation_errors(res.validation_errors);
+                showValidationErrors(res.validationErrors);
+            }
+            else {
+                buildTable(res.total, res.installment);
             }
         });
         req.addEventListener("error", function () {
@@ -20,11 +23,64 @@
         req.send(data);
 
     }
-    function show_validation_errors(errors_obj) {
+    function showValidationErrors(errors_obj) {
         var validation_errors = "";
         for (var key in errors_obj) {
             validation_errors += errors_obj[key];
         }
         document.getElementById("validation-errors").innerHTML = validation_errors;
+    }
+    function buildTable(total, installment) {
+        var table = '<table id="price-matrix" border="1">\n\
+                    <thead>\n\
+                        <tr>\n\
+                            <th></th>\n\
+                            <th>Policy</th>\n\
+                        <tr>\n\
+                    </thead>\n\
+                    <tbody>\n\
+                        <tr>\n\
+                            <td>Value</td>\n\
+                        </tr>\n\
+                        <tr>\n\
+                            <td>Base Premium (11%)</td>\n\
+                        </tr>\n\
+                        <tr>\n\
+                            <td>Commission (17%)</td>\n\
+                        </tr>\n\
+                        <tr>\n\
+                            <td>Tax (10%)</td>\n\
+                        </tr>\n\
+                        <tr>\n\
+                            <td><strong>Total cost</strong></td>\n\
+                        </tr>\n\
+                    </tbody>\n\
+        </table>';
+        document.getElementById("price-matrix-wrapper").innerHTML = table;
+
+
+        var table = document.getElementById("price-matrix");
+        var thead = table.getElementsByTagName('thead')[0];
+        var tbody = table.getElementsByTagName('tbody')[0];
+
+        var tr = tbody.getElementsByTagName('tr');
+
+        tr[0].innerHTML += "<td>" + total.carValue + "</td>";
+        tr[1].innerHTML += "<td>" + total.basePrice + "</td>";
+        tr[2].innerHTML += "<td>" + total.commission + "</td>";
+        tr[3].innerHTML += "<td>" + total.tax + "</td>";
+        tr[4].innerHTML += "<td>" + total.sum + "</td>";
+
+        if (total.installmentsNum > 1) {
+            var theadTr = thead.getElementsByTagName('tr')[0];
+            for (var i = 1; i <= total.installmentsNum; i++) {
+                theadTr.innerHTML += "<th>Installment " + i + "</th>";
+                tr[0].innerHTML += "<td></td>";
+                tr[1].innerHTML += "<td>" + installment.basePrice + "</td>";
+                tr[2].innerHTML += "<td>" + installment.commission + "</td>";
+                tr[3].innerHTML += "<td>" + installment.tax + "</td>";
+                tr[4].innerHTML += "<td>" + installment.sum + "</td>";
+            }
+        }
     }
 })();

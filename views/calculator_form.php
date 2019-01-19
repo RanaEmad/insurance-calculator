@@ -6,7 +6,7 @@
     <body>
         <h1>Insurance Calculator</h1>
         <div id="validation-errors">
-            
+
         </div>
         <form id="calculator-form">
             <div>
@@ -25,6 +25,9 @@
                 <input type="submit" value="Calculate" id="calculate-btn">
             </div>
         </form>
+        <div id="price-matrix-wrapper">
+            
+        </div>
         <script type="text/javascript" src="assets/js/calculator.js"></script>
     </body>
 </html>
