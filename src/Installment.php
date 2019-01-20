@@ -9,9 +9,9 @@ class Installment extends Cost {
     }
 
     public function setCost() {
-        $this->basePrice = $this->roundExtra($this->calc->calcBase());
-        $this->commission = $this->roundExtra($this->calc->calcCommission());
-        $this->tax = $this->roundExtra($this->calc->calcTax());
+        $this->basePrice = $this->roundExtra(round($this->calc->calcBase(),2));
+        $this->commission = $this->roundExtra(round($this->calc->calcCommission(),2));
+        $this->tax = $this->roundExtra(round($this->calc->calcTax(),2));
         $this->setSum();
     }
 

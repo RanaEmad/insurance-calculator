@@ -9,9 +9,9 @@ class Total extends Cost {
     }
 
     public function setCost() {
-        $this->basePrice = $this->calc->calcBase();
-        $this->commission = $this->calc->calcCommission();
-        $this->tax = $this->calc->calcTax();
+        $this->basePrice = round($this->calc->calcBase(),2);
+        $this->commission = round($this->calc->calcCommission(),2);
+        $this->tax = round($this->calc->calcTax(),2);
         $this->sum=  $this->basePrice+$this->commission+$this->tax;
         $this->formatValues();
     }
