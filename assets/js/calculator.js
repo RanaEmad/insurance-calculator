@@ -24,6 +24,7 @@
 
     }
     function showValidationErrors(errors_obj) {
+         document.getElementById("price-matrix-wrapper").innerHTML="";
         var validation_errors = "";
         for (var key in errors_obj) {
             validation_errors += errors_obj[key];
@@ -31,6 +32,7 @@
         document.getElementById("validation-errors").innerHTML = validation_errors;
     }
     function buildTable(total, installment) {
+        document.getElementById("validation-errors").innerHTML="";
         var table = '<table id="price-matrix" border="1">\n\
                     <thead>\n\
                         <tr>\n\

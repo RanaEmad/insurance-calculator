@@ -12,7 +12,7 @@ class Output {
         $fields=array(
             "carValue"=>"required|numeric|between_100_100000",
             "taxPerc"=>"required|numeric|between_0_100",
-            "installmentsNum"=>"required|numeric|between_1_12"
+            "installmentsNum"=>"required|numeric|isInt|between_1_12"
         );
         $validation= $this->input->post($fields);
         $response['result']=true;
@@ -29,7 +29,7 @@ class Output {
         }
         else{
             $response['result']=false;
-            $response['validatioErrors']=$validation['errors'];
+            $response['validationErrors']=$validation['errors'];
         }
         return $response;
     }

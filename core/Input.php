@@ -69,5 +69,17 @@ class Input {
             }
         }
     }
+    
+    public function isInt($value) {
+        
+        if ((int)$value!=$value) {
+            $this->result = false;
+            if (isset($this->errors[$this->field])) {
+                $this->errors[$this->field].="<p>The $this->field field must be an integer</p>";
+            } else {
+                $this->errors[$this->field] = "<p>The $this->field field must be an integer</p>";
+            }
+        }
+    }
 
 }
