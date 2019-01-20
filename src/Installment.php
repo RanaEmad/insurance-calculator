@@ -9,11 +9,31 @@ class Installment extends Cost {
     }
 
     public function setCost() {
-        $this->basePrice = $this->calc->calcBase() / $this->installmentsNum;
-        $this->commission = $this->calc->calcCommission() / $this->installmentsNum;
-        $this->tax = $this->calc->calcTax() / $this->installmentsNum;
-        $this->sum=  $this->basePrice+$this->commission+$this->tax;
-        $this->formatValues();
+        $this->basePrice = $this->roundExtra($this->calc->calcBase());
+        $this->commission = $this->roundExtra($this->calc->calcCommission());
+        $this->tax = $this->roundExtra($this->calc->calcTax());
+        $this->setSum();
+    }
+
+    public function roundExtra($total) {
+        $amount = 0;
+        $divider = $this->installmentsNum;
+        $roundedAmounts = [];
+        while ($divider > 0) {
+            $amount = number_format(round($total / $divider, 2), 2,".","");
+            $roundedAmounts[] = $amount;
+            $total -=$amount;
+            $divider--;
+        }
+        sort($roundedAmounts);
+        return $roundedAmounts;
+    }
+    
+    public function setSum(){
+        $this->sum=[];
+        for($i=0;$i<$this->installmentsNum;$i++){
+            $this->sum[$i]=  number_format($this->basePrice[$i]+$this->commission[$i]+$this->tax[$i], 2,".","");
+        }
     }
 
 }

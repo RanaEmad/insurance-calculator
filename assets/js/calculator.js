@@ -73,13 +73,13 @@
 
         if (total.installmentsNum > 1) {
             var theadTr = thead.getElementsByTagName('tr')[0];
-            for (var i = 1; i <= total.installmentsNum; i++) {
-                theadTr.innerHTML += "<th>Installment " + i + "</th>";
+            for (var i = 0; i < total.installmentsNum; i++) {
+                theadTr.innerHTML += "<th>Installment " + (i+1) + "</th>";
                 tr[0].innerHTML += "<td></td>";
-                tr[1].innerHTML += "<td>" + installment.basePrice + "</td>";
-                tr[2].innerHTML += "<td>" + installment.commission + "</td>";
-                tr[3].innerHTML += "<td>" + installment.tax + "</td>";
-                tr[4].innerHTML += "<td>" + installment.sum + "</td>";
+                tr[1].innerHTML += "<td>" + installment.basePrice[i] + "</td>";
+                tr[2].innerHTML += "<td>" + installment.commission[i] + "</td>";
+                tr[3].innerHTML += "<td>" + installment.tax[i] + "</td>";
+                tr[4].innerHTML += "<td>" + installment.sum[i] + "</td>";
             }
         }
     }
