@@ -9,6 +9,7 @@
 
         </div>
         <form id="calculator-form">
+            <input type="hidden" name="date" id="date">
             <div>
                 <label for="carValue">Estimated Car Value</label>
                 <input type="number" min="100" max="100000" name="carValue" id="carValue">

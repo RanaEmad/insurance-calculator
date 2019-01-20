@@ -1,8 +1,17 @@
 (function () {
     var calculateBtn = document.getElementById("calculate-btn");
     calculateBtn.addEventListener("click", calculateCost);
+    function concatZero(value){
+        if(value<10){
+            value= "0"+value;
+        }
+        return value;
+    }
     function calculateCost(e) {
         e.preventDefault();
+        var date = new Date();
+        var dateString= date.getFullYear()+"-"+concatZero(date.getMonth()+1)+"-"+concatZero(date.getDate())+" "+concatZero(date.getHours())+":"+concatZero(date.getMinutes());
+        document.getElementById('date').value = dateString;
         var calculatorForm = document.getElementById("calculator-form");
         var data = new FormData(calculatorForm);
         var url = "index.php";
