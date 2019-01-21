@@ -7,11 +7,13 @@ class Input {
     protected $errors;
     protected $result;
     protected $values;
+    protected $labels;
 
     public function __construct() {
         $this->result = true;
         $this->errors = [];
         $this->values=[];
+        $this->labels=["carValue"=>"Estimated Car Value","taxPerc"=>"Tax Percentage","installmentsNum"=>"Number Of Installments"];
     }
 
     public function post($fields) {
@@ -38,12 +40,12 @@ class Input {
     }
 
     public function required($value) {
-        if (!$value) {
+        if (!$value && (int)$value!==0) {
             $this->result = false;
             if (isset($this->errors[$this->field])) {
-                $this->errors[$this->field].="<p>The $this->field field is required</p>";
+                $this->errors[$this->field].="<p>The {$this->labels[$this->field]} field is required</p>";
             } else {
-                $this->errors[$this->field] = "<p>The $this->field field is required</p>";
+                $this->errors[$this->field] = "<p>The {$this->labels[$this->field]} field is required</p>";
             }
         }
     }
@@ -52,9 +54,9 @@ class Input {
         if (!is_numeric($value)) {
             $this->result = false;
             if (isset($this->errors[$this->field])) {
-                $this->errors[$this->field].="<p>The $this->field field must be numeric</p>";
+                $this->errors[$this->field].="<p>The {$this->labels[$this->field]} field must be numeric</p>";
             } else {
-                $this->errors[$this->field] = "<p>The $this->field field must be numeric</p>";
+                $this->errors[$this->field] = "<p>The {$this->labels[$this->field]} field must be numeric</p>";
             }
         }
     }
@@ -63,7 +65,7 @@ class Input {
         if (!($value >= $min && $value <= $max)) {
             $this->result = false;
             if (isset($this->errors[$this->field])) {
-                $this->errors[$this->field].="<p>The $this->field field must be from $min to $max</p>";
+                $this->errors[$this->field].="<p>The {$this->labels[$this->field]} field must be from $min to $max</p>";
             } else {
                 $this->errors[$this->field] = "<p>The $this->field field must be from $min to $max</p>";
             }
@@ -75,9 +77,9 @@ class Input {
         if ((int)$value!=$value) {
             $this->result = false;
             if (isset($this->errors[$this->field])) {
-                $this->errors[$this->field].="<p>The $this->field field must be an integer</p>";
+                $this->errors[$this->field].="<p>The {$this->labels[$this->field]} field must be an integer</p>";
             } else {
-                $this->errors[$this->field] = "<p>The $this->field field must be an integer</p>";
+                $this->errors[$this->field] = "<p>The {$this->labels[$this->field]} field must be an integer</p>";
             }
         }
     }
