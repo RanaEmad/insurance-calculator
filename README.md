@@ -12,6 +12,11 @@ This is Task 2 in Insly's assignment which is a simple car insurance calculator.
 * Go to the corresponding URL for your folder in your browser to check the calculator
 * To check the provided tests placed in tests folder, in the root folder of the script run ```vendor\bin\phpunit tests``` in case of windows OR  ```vendor/bin/phpunit tests``` in case of mac
 
+## Other Tasks
+You can find the other tasks in the below repositories
+* Task 1: https://github.com/RanaEmad/name
+* Task 3: https://github.com/RanaEmad/employee-data
+
 ## Author
 
 * **Rana Emad**  - (https://github.com/RanaEmad)
