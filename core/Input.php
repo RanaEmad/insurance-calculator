@@ -1,6 +1,8 @@
 <?php
 namespace Calculator\Core;
-
+/*
+ * To validate and sanitize input fields
+ */
 class Input {
 
     protected $field;
@@ -15,16 +17,20 @@ class Input {
         $this->values=[];
         $this->labels=["carValue"=>"Estimated Car Value","taxPerc"=>"Tax Percentage","installmentsNum"=>"Number Of Installments"];
     }
-
+    /*
+     * validates post request fields
+     */
     public function post($fields) {
         foreach ($fields as $field => $validation_string) {
             $this->field=$field;
             $value = htmlspecialchars(trim($_POST[$field]));
             $this->values[$field]=$value;
             if ($validation_string) {
+                //the validation functions to be implemented as a string
                 $validations = explode("|", $validation_string);
                 foreach ($validations as $method) {
                     if (strpos($method, "between") === 0) {
+                        //function parameters are separated by '_' in the function string
                         $params = explode("_", $method);
                         $this->{$params[0]}($value, $params[1], $params[2]);
                     } else {

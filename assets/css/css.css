@@ -4,8 +4,6 @@ body{
     font-family: 'Lato', 'Open Sans', Helvetica, sans-serif;
 }
 h1{
-/*    color: #353940;
-    font-weight: 100;*/
     font-weight: 100;
     background-color: #353940;
     padding: 1%;
@@ -25,14 +23,12 @@ h1{
 }
 .wrapper{
     background-color: white;
-    /*padding: 1%;*/
 }
 #calculator-form{
     padding: 1%;
 }
 .form-group{
     width: 50%;
-    /*background-color: gray;*/
     padding: 1%;
 }
 .form-group label{
@@ -41,8 +37,6 @@ h1{
 }
 .form-group input{
     padding: 1%;
-/*    border: 1px solid #d8d2d2;
-    border-radius: 5%;*/
     border: none;
     background-color: whitesmoke;
     width: 50%;

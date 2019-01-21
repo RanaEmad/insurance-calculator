@@ -1,7 +1,9 @@
 <?php
 
 namespace Calculator\Controllers;
-
+/*
+ * total output calculation
+ */
 class Total extends Cost {
 
     public function __construct($carValue, $taxPerc, $installmentsNum) {

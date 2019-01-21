@@ -1,7 +1,9 @@
 <?php
 
 namespace Calculator\Controllers;
-
+/*
+ * main output structure
+ */
 abstract class Cost {
 
     public $carValue;

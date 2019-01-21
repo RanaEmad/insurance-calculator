@@ -3,7 +3,9 @@
 namespace Calculator\Controllers;
 
 use Calculator\Percentage\BasePerc;
-
+/*
+ * calculates policy attributess
+ */
 class Calc {
 
     protected $carValue;

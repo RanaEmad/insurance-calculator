@@ -1,7 +1,9 @@
 <?php
 
 namespace Calculator\Controllers;
-
+/*
+ * each installment calculation
+ */
 class Installment extends Cost {
 
     public function __construct($carValue, $taxPerc, $installmentsNum) {
@@ -14,11 +16,14 @@ class Installment extends Cost {
         $this->tax = $this->roundExtra(round($this->calc->calcTax(),2));
         $this->setSum();
     }
-
+    /*
+     * To make sure the sum of all attributes equals the total
+     */
     public function roundExtra($total) {
         $amount = 0;
         $divider = $this->installmentsNum;
         $roundedAmounts = [];
+        //in case sums do not divide equally to divide the remainder
         while ($divider > 0) {
             $amount = number_format(round($total / $divider, 2), 2,".","");
             $roundedAmounts[] = $amount;

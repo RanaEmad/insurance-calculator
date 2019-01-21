@@ -1,12 +1,18 @@
 (function () {
     var calculateBtn = document.getElementById("calculate-btn");
     calculateBtn.addEventListener("click", calculateCost);
+    /*
+     * concats zero as a prefix to single digit numbers 
+     */
     function concatZero(value){
         if(value<10){
             value= "0"+value;
         }
         return value;
     }
+    /*
+     * Gets poilcy cost asynchronously
+     */
     function calculateCost(e) {
         e.preventDefault();
         var date = new Date();
@@ -32,6 +38,9 @@
         req.send(data);
 
     }
+    /*
+     * Shows input fields validation errors
+     */
     function showValidationErrors(errors_obj) {
          document.getElementById("price-matrix-wrapper").innerHTML="";
         var validation_errors = "";
@@ -41,6 +50,9 @@
         document.getElementById("validation-errors").innerHTML = validation_errors;
         document.getElementById("validation-errors").style.display="block";
     }
+    /*
+     * builds the price matrix
+     */
     function buildTable(total, installment) {
         document.getElementById("validation-errors").style.display="none";
         document.getElementById("validation-errors").innerHTML="";

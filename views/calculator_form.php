@@ -2,6 +2,7 @@
 <html>
     <head>
         <title>Insurance Calculator</title>
+        <meta charset="utf-8"/>
         <link href="assets/css/css.css" rel="stylesheet"/>
     </head>
     <body>

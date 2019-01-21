@@ -7,7 +7,9 @@ class BasePerc {
     public function __construct() {
         
     }
-
+    /*
+     * gets base percentage based on user's time
+     */
     public static function getBasePerc() {
         $basePerc = 0.11;
         $time=strtotime(self::$date);
