@@ -1,9 +1,11 @@
 {
-    "name": "rana",
     "autoload": {
         "classmap": [
             "src",
             "core"
         ]
+    },
+    "require-dev": {
+        "phpunit/phpunit": "7"
     }
 }
